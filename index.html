@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>Kindora · Small Acts. Stronger Communities.</title>
+  <!-- Google Fonts: Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- CSS Reset & Base ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --forest: #123C32;
+      --secondary: #245B48;
+      --mint: #D7F0DF;
+      --cream: #F8F7F2;
+      --white: #FFFFFF;
+      --charcoal: #202923;
+      --orange: #F3A66B;
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.05), 0 8px 20px rgba(0, 0, 0, 0.03);
+      --radius-card: 24px;
+      --radius-btn: 40px;
+      --font: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --transition: all 0.2s ease;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--forest);
+    }
+
+    h1 { font-size: 3.2rem; line-height: 1.2; font-weight: 700; }
+    h2 { font-size: 2.2rem; line-height: 1.3; font-weight: 600; }
+    h3 { font-size: 1.4rem; font-weight: 600; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ---------- Utility ---------- */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .gap-4 { gap: 16px; }
+    .gap-6 { gap: 24px; }
+    .gap-8 { gap: 32px; }
+    .text-center { text-align: center; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+      background: var(--forest);
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      background: var(--secondary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 3px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--forest);
+      border: 1.5px solid var(--forest);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .btn-small {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+
+    .btn-orange {
+      background: var(--orange);
+      color: var(--charcoal);
+      border: none;
+    }
+
+    .btn-orange:hover {
+      background: #e8955a;
+      color: var(--charcoal);
+    }
+
+    /* ---------- Header / Nav ---------- */
+    .site-header {
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(18, 60, 50, 0.06);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .main-nav a {
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--charcoal);
+      transition: var(--transition);
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--forest);
+      border-bottom-color: var(--orange);
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      font-size: 1.8rem;
+      color: var(--forest);
+      padding: 8px;
+    }
+
+    /* ---------- Page system ---------- */
+    .page {
+      display: none;
+      padding: 48px 0 80px;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* ---------- Hero Landing ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 32px 0 80px;
+    }
+
+    .hero-content {
+      max-width: 560px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--mint);
+      color: var(--forest);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 {
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #3a4a42;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      background: var(--mint);
+      border-radius: 48px;
+      padding: 48px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    .impact-mini-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .impact-mini-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--forest);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+    }
+
+    /* ---------- How it works ---------- */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #4a5a52;
+      font-size: 1.15rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .step-card {
+      background: var(--white);
+      padding: 40px 32px;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(18, 60, 50, 0.04);
+    }
+
+    .step-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--mint);
+      color: var(--forest);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 24px;
+    }
+
+    .step-card h3 {
+      margin-bottom: 12px;
+    }
+
+    /* ---------- Request preview cards ---------- */
+    .request-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .request-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(18, 60, 50, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .request-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .request-category {
+      display: inline-block;
+      background: var(--mint);
+      color: var(--forest);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      width: fit-content;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .request-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--forest);
+      line-height: 1.4;
+    }
+
+    .request-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      font-size: 0.9rem;
+      color: #4f5f57;
+    }
+
+    .request-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .request-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 12px;
+    }
+
+    /* ---------- Stats row ---------- */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .stat-card {
+      background: var(--white);
+      padding: 32px 24px;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--forest);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: #4a5a52;
+      font-weight: 500;
+    }
+
+    /* ---------- Final CTA ---------- */
+    .cta-box {
+      background: var(--forest);
+      border-radius: 40px;
+      padding: 64px 48px;
+      text-align: center;
+      color: var(--white);
+      margin-top: 48px;
+    }
+
+    .cta-box h2 {
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .cta-box p {
+      color: var(--mint);
+      font-size: 1.2rem;
+      margin-bottom: 32px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ---------- Dashboard layout ---------- */
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 40px;
+    }
+
+    .sidebar {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      padding: 32px 16px;
+      box-shadow: var(--shadow-sm);
+      height: fit-content;
+      position: sticky;
+      top: 104px;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-weight: 500;
+      color: var(--charcoal);
+      transition: var(--transition);
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      background: var(--mint);
+      color: var(--forest);
+      font-weight: 600;
+    }
+
+    .sidebar-nav i {
+      font-style: normal;
+      font-size: 1.2rem;
+    }
+
+    .dashboard-content {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .dashboard-header h2 {
+      font-size: 1.8rem;
+    }
+
+    .stats-grid-small {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .stat-card-sm {
+      background: var(--white);
+      padding: 24px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-card-sm .stat-value {
+      font-size: 2.2rem;
+      margin-bottom: 4px;
+    }
+
+    .stat-card-sm .stat-label {
+      font-size: 0.9rem;
+    }
+
+    .activity-list {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(18, 60, 50, 0.06);
+    }
+
+    .activity-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .activity-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--orange);
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    /* ---------- Forms ---------- */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 1.5px solid rgba(18, 60, 50, 0.12);
+      font-family: inherit;
+      font-size: 1rem;
+      background: var(--white);
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--forest);
+      box-shadow: 0 0 0 4px rgba(18, 60, 50, 0.08);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--mint);
+      padding: 8px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .checkbox-item:hover {
+      background: #c2e6cc;
+    }
+
+    .checkbox-item input {
+      width: auto;
+      accent-color: var(--forest);
+    }
+
+    .privacy-note {
+      background: #f0f7f2;
+      padding: 16px 20px;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      color: #2e4a3e;
+      margin: 24px 0;
+      border-left: 4px solid var(--orange);
+    }
+
+    /* ---------- Match ---------- */
+    .match-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      border: 1px solid rgba(18, 60, 50, 0.04);
+    }
+
+    .match-badge {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: var(--orange);
+      color: var(--charcoal);
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .match-reason {
+      font-size: 0.9rem;
+      color: #4f5f57;
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(18, 60, 50, 0.06);
+    }
+
+    /* ---------- Toast ---------- */
+    .toast-container {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      pointer-events: none;
+    }
+
+    .toast {
+      background: var(--forest);
+      color: var(--white);
+      padding: 16px 24px;
+      border-radius: 60px;
+      box-shadow: var(--shadow-lg);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: toastIn 0.3s forwards;
+      pointer-events: auto;
+    }
+
+    @keyframes toastIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---------- Empty state ---------- */
+    .empty-state {
+      text-align: center;
+      padding: 64px 24px;
+      background: var(--white);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-sm);
+      color: #4a5a52;
+    }
+
+    .empty-state i {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      background: var(--forest);
+      color: var(--white);
+      padding: 48px 0 32px;
+      margin-top: 80px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .footer-brand p {
+      color: var(--mint);
+      margin-top: 8px;
+      max-width: 320px;
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 64px;
+    }
+
+    .footer-links a {
+      color: var(--mint);
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-creator {
+      font-size: 0.85rem;
+      color: var(--mint);
+      margin-top: 24px;
+      border-top: 1px solid rgba(215, 240, 223, 0.2);
+      padding-top: 24px;
+      text-align: center;
+      opacity: 0.8;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .stats-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .dashboard-layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 16px;
+      }
+      .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+      h1 {
+        font-size: 2.4rem;
+      }
+      .header-inner {
+        height: 70px;
+      }
+      .main-nav {
+        display: none;
+      }
+      .main-nav.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 24px;
+        gap: 16px;
+        box-shadow: var(--shadow-lg);
+        border-radius: 0 0 24px 24px;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-cta {
+        display: none;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+      .footer-links {
+        gap: 32px;
+        flex-direction: column;
+      }
+      .form-card {
+        padding: 24px;
+      }
+      .cta-box {
+        padding: 40px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .request-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* helper for icons (using text) */
+    .icon {
+      font-style: normal;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo" data-page="landing">Kindora<span>.</span></a>
+      <nav class="main-nav" id="mainNav">
+        <a href="#" data-page="landing" class="active">Home</a>
+        <a href="#" data-page="dashboard">Dashboard</a>
+        <a href="#" data-page="discover">Discover</a>
+        <a href="#" data-page="create">Create</a>
+        <a href="#" data-page="match">Kindora Match</a>
+        <a href="#" data-page="activities">My Activities</a>
+        <a href="#" data-page="impact">Impact</a>
+        <a href="#" data-page="profile">Profile</a>
+      </nav>
+      <div class="nav-cta">
+        <button class="btn btn-small btn-outline" data-page="discover">Explore</button>
+        <button class="btn btn-small" data-page="create">Create Request</button>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT (pages) -->
+  <main id="app">
+    <!-- LANDING PAGE -->
+    <section id="page-landing" class="page active">
+      <div class="container">
+        <!-- HERO -->
+        <div class="hero">
+          <div class="hero-content">
+            <div class="hero-badge">Small Acts. Stronger Communities.</div>
+            <h1>A better world starts with one small act.</h1>
+            <p>Kindora connects people who need a hand with people who are ready to help. Discover community requests, offer support, and track the positive impact you create.</p>
+            <div class="hero-actions">
+              <button class="btn" data-page="discover">Explore Kindora</button>
+              <button class="btn btn-outline" data-page="create">Create a request</button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="impact-mini-card">
+              <div class="impact-mini-icon">🤝</div>
+              <div>
+                <div style="font-weight:700; font-size:1.6rem; color:var(--forest);" id="landingHelperCount">—</div>
+                <div style="color:#4a5a52; font-size:0.95rem;">people offering help</div>
+              </div>
+            </div>
+            <div class="impact-mini-card">
+              <div class="impact-mini-icon">📋</div>
+              <div>
+                <div style="font-weight:700; font-size:1.6rem; color:var(--forest);" id="landingRequestCount">—</div>
+                <div style="color:#4a5a52; font-size:0.95rem;">community requests</div>
+              </div>
+            </div>
+            <div class="impact-mini-card">
+              <div class="impact-mini-icon">✅</div>
+              <div>
+                <div style="font-weight:700; font-size:1.6rem; color:var(--forest);" id="landingCompletedCount">—</div>
+                <div style="color:#4a5a52; font-size:0.95rem;">acts completed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <div class="section">
+          <div class="section-title">
+            <h2>How Kindora works</h2>
+            <p>Three simple steps to create real community impact.</p>
+          </div>
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <h3>Discover requests</h3>
+              <p>Browse community needs filtered by category. Find the ones that match your interests.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <h3>Offer help</h3>
+              <p>Reach out with a simple offer. No personal info required. Every small act counts.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <h3>Track impact</h3>
+              <p>See your contributions add up. Watch your community get stronger, one act at a time.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMMUNITY PREVIEW -->
+        <div class="section">
+          <div class="section-title">
+            <h2>Community requests</h2>
+            <p>Here’s what people are asking for right now. (Demo data)</p>
+          </div>
+          <div class="request-grid" id="landingRequestGrid"></div>
+        </div>
+
+        <!-- IMPACT STATS -->
+        <div class="section">
+          <div class="section-title">
+            <h2>Community impact</h2>
+            <p>Real numbers from our prototype community.</p>
+          </div>
+          <div class="stats-row" id="landingStatsRow">
+            <div class="stat-card">
+              <div class="stat-value" id="landingStatCreated">0</div>
+              <div class="stat-label">Requests created</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="landingStatOffers">0</div>
+              <div class="stat-label">Help offers</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="landingStatCompleted">0</div>
+              <div class="stat-label">Completed requests</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="landingStatHelpers">0</div>
+              <div class="stat-label">Active helpers</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FINAL CTA -->
+        <div class="cta-box">
+          <h2>Ready to make a difference?</h2>
+          <p>Join a growing community of people who believe small acts create stronger communities.</p>
+          <button class="btn btn-orange" data-page="create" style="background:var(--orange); color:var(--charcoal);">Create a request</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="page-dashboard" class="page">
+      <div class="container">
+        <div class="dashboard-layout">
+          <aside class="sidebar">
+            <nav class="sidebar-nav">
+              <a href="#" data-page="dashboard" class="active"><i>📊</i> Overview</a>
+              <a href="#" data-page="discover"><i>🔍</i> Discover</a>
+              <a href="#" data-page="create"><i>➕</i> Create</a>
+              <a href="#" data-page="match"><i>✨</i> Match</a>
+              <a href="#" data-page="activities"><i>📁</i> My Activities</a>
+              <a href="#" data-page="impact"><i>🌱</i> Impact</a>
+              <a href="#" data-page="profile"><i>⚙️</i> Profile</a>
+            </nav>
+          </aside>
+          <div class="dashboard-content">
+            <div class="dashboard-header">
+              <h2>Community dashboard</h2>
+              <button class="btn btn-small" data-page="create">+ New request</button>
+            </div>
+            <div class="stats-grid-small" id="dashboardStats"></div>
+            <div>
+              <h3 style="margin-bottom:16px;">Recent community requests</h3>
+              <div class="request-grid" id="dashboardRecentRequests"></div>
+            </div>
+            <div>
+              <h3 style="margin-bottom:16px;">Recent activity</h3>
+              <div class="activity-list" id="dashboardActivityList"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCOVER -->
+    <section id="page-discover" class="page">
+      <div class="container">
+        <div class="dashboard-header" style="margin-bottom:32px;">
+          <h2>Discover community requests</h2>
+          <div class="flex gap-4 items-center">
+            <input type="text" id="searchInput" placeholder="Search requests..." style="padding:12px 20px; border-radius:40px; border:1px solid rgba(18,60,50,0.12); width:240px;">
+            <select id="categoryFilter" style="padding:12px 20px; border-radius:40px; border:1px solid rgba(18,60,50,0.12);">
+              <option value="all">All categories</option>
+              <option value="Education">Education</option>
+              <option value="Food">Food</option>
+              <option value="Community">Community</option>
+              <option value="Technology">Technology</option>
+              <option value="Environment">Environment</option>
+              <option value="Emotional Support">Emotional Support</option>
+              <option value="Other">Other</option>
+            </select>
+            <select id="sortSelect" style="padding:12px 20px; border-radius:40px; border:1px solid rgba(18,60,50,0.12);">
+              <option value="newest">Newest first</option>
+              <option value="relevance">Relevance</option>
+            </select>
+          </div>
+        </div>
+        <div class="request-grid" id="discoverGrid"></div>
+      </div>
+    </section>
+
+    <!-- CREATE REQUEST -->
+    <section id="page-create" class="page">
+      <div class="container">
+        <div class="form-card">
+          <h2 style="margin-bottom:32px;">Create a community request</h2>
+          <form id="createRequestForm">
+            <div class="form-group">
+              <label for="reqTitle">Title *</label>
+              <input type="text" id="reqTitle" required placeholder="e.g., Help with moving boxes">
+            </div>
+            <div class="form-group">
+              <label for="reqCategory">Category *</label>
+              <select id="reqCategory" required>
+                <option value="">Select category</option>
+                <option value="Education">Education</option>
+                <option value="Food">Food</option>
+                <option value="Community">Community</option>
+                <option value="Technology">Technology</option>
+                <option value="Environment">Environment</option>
+                <option value="Emotional Support">Emotional Support</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="reqDescription">Description *</label>
+              <textarea id="reqDescription" required placeholder="Describe what you need help with..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="reqSupportType">Type of support needed *</label>
+              <input type="text" id="reqSupportType" required placeholder="e.g., Physical help, advice, materials">
+            </div>
+            <div class="form-group">
+              <label for="reqDeadline">Deadline (optional)</label>
+              <input type="date" id="reqDeadline">
+            </div>
+            <div class="form-group">
+              <label for="reqArea">Approximate area (optional)</label>
+              <input type="text" id="reqArea" placeholder="e.g., Northside, near the library">
+            </div>
+            <div class="privacy-note">
+              <strong>Privacy reminder:</strong> Please do not share exact home addresses or sensitive personal information. Kindora is a prototype for community connection.
+            </div>
+            <button type="submit" class="btn" style="width:100%;">Submit request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUEST DETAILS (dynamic overlay via page) -->
+    <section id="page-requestDetail" class="page">
+      <div class="container">
+        <button class="btn btn-small btn-outline" style="margin-bottom:24px;" id="backFromDetail">← Back</button>
+        <div id="requestDetailContent"></div>
+      </div>
+    </section>
+
+    <!-- KINDORA MATCH -->
+    <section id="page-match" class="page">
+      <div class="container">
+        <div class="dashboard-header" style="margin-bottom:32px;">
+          <h2>Kindora Match</h2>
+          <p style="color:#4a5a52;">Requests recommended based on your helping interests.</p>
+        </div>
+        <div id="matchGrid" class="request-grid"></div>
+      </div>
+    </section>
+
+    <!-- MY ACTIVITIES -->
+    <section id="page-activities" class="page">
+      <div class="container">
+        <h2 style="margin-bottom:32px;">My activities</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+          <div>
+            <h3 style="margin-bottom:16px;">Requests I created</h3>
+            <div id="myCreatedRequests" class="activity-list"></div>
+          </div>
+          <div>
+            <h3 style="margin-bottom:16px;">My help offers</h3>
+            <div id="myHelpOffers" class="activity-list"></div>
+          </div>
+        </div>
+        <div style="margin-top:32px;">
+          <h3 style="margin-bottom:16px;">Activity history</h3>
+          <div id="activityHistory" class="activity-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT DASHBOARD -->
+    <section id="page-impact" class="page">
+      <div class="container">
+        <h2 style="margin-bottom:32px;">Impact dashboard</h2>
+        <div class="stats-grid-small" id="impactStats"></div>
+        <div style="margin-top:48px;">
+          <h3 style="margin-bottom:16px;">Community activity overview</h3>
+          <div id="impactActivityList" class="activity-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFILE & SETTINGS -->
+    <section id="page-profile" class="page">
+      <div class="container">
+        <div class="form-card">
+          <h2 style="margin-bottom:32px;">Profile & settings</h2>
+          <div class="form-group">
+            <label for="profileName">Display name</label>
+            <input type="text" id="profileName" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Helping interests</label>
+            <div class="checkbox-group" id="interestCheckboxes">
+              <!-- dynamically filled -->
+            </div>
+          </div>
+          <div class="privacy-note" style="margin-bottom:32px;">
+            Your data is stored locally in your browser. Kindora does not collect any personal information.
+          </div>
+          <button class="btn" id="saveProfileBtn" style="width:100%;">Save profile</button>
+          <button class="btn btn-outline" id="resetDemoBtn" style="width:100%; margin-top:16px;">Reset demo data</button>
+        </div>
+        <div style="margin-top:48px; max-width:720px; margin-left:auto; margin-right:auto;">
+          <h3 style="margin-bottom:16px;">About Kindora</h3>
+          <p style="color:#4a5a52; line-height:1.7;">Kindora is a community support platform concept created by Kenjiro Arkananta for a hackathon, designed to help people connect, support one another, and create positive community impact.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo" style="color:var(--white); font-size:1.6rem;">Kindora<span style="color:var(--orange);">.</span></div>
+          <p>Small acts. Stronger communities.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#" data-page="landing">Home</a>
+          <a href="#" data-page="discover">Discover</a>
+          <a href="#" data-page="create">Create</a>
+          <a href="#" data-page="impact">Impact</a>
+        </div>
+      </div>
+      <div class="footer-creator">
+        Created by Kenjiro Arkananta
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // ---------- STORAGE KEYS ----------
+      const STORAGE_REQUESTS = 'kindora_requests';
+      const STORAGE_OFFERS = 'kindora_offers';
+      const STORAGE_PROFILE = 'kindora_profile';
+      const STORAGE_ACTIVITY = 'kindora_activity';
+
+      // ---------- SAMPLE DATA ----------
+      const SAMPLE_REQUESTS = [
+        {
+          id: 'req1',
+          title: 'Help with moving boxes',
+          category: 'Community',
+          description: 'I need an extra pair of hands to move some boxes from my car to my apartment. Should take about an hour.',
+          supportType: 'Physical help',
+          deadline: '2025-06-15',
+          area: 'Northside',
+          createdAt: '2025-05-20T10:30:00Z',
+          helpers: 2,
+          status: 'open',
+          isSample: true,
+          userId: 'sample'
+        },
+        {
+          id: 'req2',
+          title: 'Looking for a math tutor for my daughter',
+          category: 'Education',
+          description: 'My daughter needs help with algebra. Looking for someone patient who can explain things clearly.',
+          supportType: 'Tutoring',
+          deadline: '2025-06-01',
+          area: 'West End',
+          createdAt: '2025-05-19T14:15:00Z',
+          helpers: 1,
+          status: 'open',
+          isSample: true,
+          userId: 'sample'
+        },
+        {
+          id: 'req3',
+          title: 'Need help setting up a community garden',
+          category: 'Environment',
+          description: 'We have a small plot and want to start a community garden. Need help with planning and getting supplies.',
+          supportType: 'Planning & materials',
+          deadline: '2025-07-10',
+          area: 'Green Park',
+          createdAt: '2025-05-18T09:00:00Z',
+          helpers: 3,
+          status: 'open',
+          isSample: true,
+          userId: 'sample'
+        },
+        {
+          id: 'req4',
+          title: 'Meal delivery for elderly neighbor',
+          category: 'Food',
+          description: 'My elderly neighbor is recovering from surgery. I need someone to drop off meals a few times this week.',
+          supportType: 'Meal delivery',
+          deadline: '2025-05-30',
+          area: 'Downtown',
+          createdAt: '2025-05-17T16:45:00Z',
+          helpers: 1,
+          status: 'open',
+          isSample: true,
+          userId: 'sample'
+        },
+        {
+          id: 'req5',
+          title: 'Help fixing a laptop for online classes',
+          category: 'Technology',
+          description: 'My laptop is running very slowly and I can’t afford a new one. Need help troubleshooting or installing updates.',
+          supportType: 'Tech support',
+          deadline: '',
+          area: '',
+          createdAt: '2025-05-16T11:20:00Z',
+          helpers: 0,
+          status: 'open',
+          isSample: true,
+          userId: 'sample'
+        },
+        {
+          id: 'req6',
+          title: 'Someone to talk to',
+          category: 'Emotional Support',
+          description: 'Feeling isolated lately and would appreciate a friendly chat. Just someone to listen.',
+          supportType: 'Company',
+          deadline: '',
+          area: 'Online',
+          createdAt: '2025-05-15T20:00:00Z',
+          helpers: 2,
+          status: 'open',
+          isSample: true,
+          userId: 'sample'
+        },
+        {
+          id: 'req7',
+          title: 'Help with resume writing',
+          category: 'Education',
+          description: 'I am applying for jobs and need help polishing my resume. Any advice is welcome.',
+          supportType: 'Advice',
+          deadline: '2025-06-05',
+          area: 'Central',
+          createdAt: '2025-05-14T13:10:00Z',
+          helpers: 0,
+          status: 'open',
+          isSample: true,
+          userId: 'sample'
+        },
+        {
+          id: 'req8',
+          title: 'Community cleanup day volunteer',
+          category: 'Environment',
+          description: 'Organizing a neighborhood cleanup this weekend. Looking for volunteers to help pick up litter.',
+          supportType: 'Physical help',
+          deadline: '2025-05-25',
+          area: 'Riverside',
+          createdAt: '2025-05-13T08:00:00Z',
+          helpers: 5,
+          status: 'open',
+          isSample: true,
+          userId: 'sample'
+        }
+      ];
+
+      // ---------- INIT STORAGE ----------
+      function initStorage() {
+        if (!localStorage.getItem(STORAGE_REQUESTS)) {
+          localStorage.setItem(STORAGE_REQUESTS, JSON.stringify(SAMPLE_REQUESTS));
+        }
+        if (!localStorage.getItem(STORAGE_OFFERS)) {
+          localStorage.setItem(STORAGE_OFFERS, JSON.stringify([]));
+        }
+        if (!localStorage.getItem(STORAGE_PROFILE)) {
+          localStorage.setItem(STORAGE_PROFILE, JSON.stringify({
+            name: '',
+            interests: ['Community', 'Food', 'Education']
+          }));
+        }
+        if (!localStorage.getItem(STORAGE_ACTIVITY)) {
+          localStorage.setItem(STORAGE_ACTIVITY, JSON.stringify([]));
+        }
+      }
+
+      // ---------- DATA HELPERS ----------
+      function getRequests() {
+        return JSON.parse(localStorage.getItem(STORAGE_REQUESTS) || '[]');
+      }
+
+      function saveRequests(requests) {
+        localStorage.setItem(STORAGE_REQUESTS, JSON.stringify(requests));
+      }
+
+      function getOffers() {
+        return JSON.parse(localStorage.getItem(STORAGE_OFFERS) || '[]');
+      }
+
+      function saveOffers(offers) {
+        localStorage.setItem(STORAGE_OFFERS, JSON.stringify(offers));
+      }
+
+      function getProfile() {
+        return JSON.parse(localStorage.getItem(STORAGE_PROFILE) || '{}');
+      }
+
+      function saveProfile(profile) {
+        localStorage.setItem(STORAGE_PROFILE, JSON.stringify(profile));
+      }
+
+      function getActivity() {
+        return JSON.parse(localStorage.getItem(STORAGE_ACTIVITY) || '[]');
+      }
+
+      function addActivity(action, detail) {
+        const activity = getActivity();
+        activity.unshift({
+          id: Date.now() + Math.random(),
+          action,
+          detail,
+          timestamp: new Date().toISOString()
+        });
+        localStorage.setItem(STORAGE_ACTIVITY, JSON.stringify(activity.slice(0, 100)));
+      }
+
+      // ---------- TOAST ----------
+      function showToast(message) {
+        const container = document.getElementById('toastContainer');
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        container.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transition = 'opacity 0.3s';
+          setTimeout(() => toast.remove(), 400);
+        }, 3000);
+      }
+
+      // ---------- NAVIGATION ----------
+      let currentPage = 'landing';
+      let previousPage = 'landing';
+
+      function navigateTo(page, updateHistory = true) {
+        if (page === 'requestDetail') {
+          // handled separately
+        }
+        previousPage = currentPage;
+        currentPage = page;
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        const target = document.getElementById('page-' + page);
+        if (target) target.classList.add('active');
+        // update nav active
+        document.querySelectorAll('.main-nav a, .sidebar-nav a').forEach(a => {
+          a.classList.toggle('active', a.dataset.page === page);
+        });
+        // refresh content
+        refreshPageContent(page);
+        // update URL hash
+        if (updateHistory) {
+          window.location.hash = page;
+        }
+      }
+
+      function refreshPageContent(page) {
+        switch (page) {
+          case 'landing': renderLanding(); break;
+          case 'dashboard': renderDashboard(); break;
+          case 'discover': renderDiscover(); break;
+          case 'create': break;
+          case 'match': renderMatch(); break;
+          case 'activities': renderActivities(); break;
+          case 'impact': renderImpact(); break;
+          case 'profile': renderProfile(); break;
+        }
+      }
+
+      // ---------- RENDER: LANDING ----------
+      function renderLanding() {
+        const requests = getRequests();
+        const offers = getOffers();
+        const grid = document.getElementById('landingRequestGrid');
+        // show first 3 open requests
+        const openReqs = requests.filter(r => r.status === 'open').slice(0, 3);
+        grid.innerHTML = openReqs.map(r => requestCardHtml(r, false)).join('');
+        document.getElementById('landingHelperCount').textContent = offers.length || '0';
+        document.getElementById('landingRequestCount').textContent = requests.length;
+        const completed = requests.filter(r => r.status === 'completed').length;
+        document.getElementById('landingCompletedCount').textContent = completed;
+        document.getElementById('landingStatCreated').textContent = requests.length;
+        document.getElementById('landingStatOffers').textContent = offers.length;
+        document.getElementById('landingStatCompleted').textContent = completed;
+        document.getElementById('landingStatHelpers').textContent = offers.length;
+        // attach click handlers
+        document.querySelectorAll('#landingRequestGrid .request-card').forEach(card => {
+          card.addEventListener('click', (e) => {
+            if (e.target.closest('button')) return;
+            const id = card.dataset.id;
+            openRequestDetail(id);
+          });
+        });
+      }
+
+      // ---------- REQUEST CARD TEMPLATE ----------
+      function requestCardHtml(request, showMatch = false, matchPercent = null, matchReason = '') {
+        return `
+          <div class="request-card" data-id="${request.id}">
+            ${showMatch && matchPercent ? `<div class="match-badge">${matchPercent}% match</div>` : ''}
+            <span class="request-category">${request.category}</span>
+            <div class="request-title">${escapeHtml(request.title)}</div>
+            <div class="request-meta">
+              <span class="request-meta-item">👥 ${request.helpers} helper${request.helpers !== 1 ? 's' : ''}</span>
+              ${request.area ? `<span class="request-meta-item">📍 ${escapeHtml(request.area)}</span>` : ''}
+              ${request.deadline ? `<span class="request-meta-item">📅 ${formatDate(request.deadline)}</span>` : ''}
+            </div>
+            <div class="request-actions">
+              <button class="btn btn-small offer-help-btn" data-id="${request.id}" ${request.status !== 'open' ? 'disabled' : ''}>${request.status === 'open' ? 'Offer help' : 'Closed'}</button>
+              <button class="btn btn-small btn-outline view-detail-btn" data-id="${request.id}">Details</button>
+            </div>
+            ${showMatch && matchReason ? `<div class="match-reason">${matchReason}</div>` : ''}
+          </div>
+        `;
+      }
+
+      // ---------- RENDER: DASHBOARD ----------
+      function renderDashboard() {
+        const requests = getRequests();
+        const offers = getOffers();
+        const completed = requests.filter(r => r.status === 'completed').length;
+        const statsHtml = `
+          <div class="stat-card-sm"><div class="stat-value">${requests.length}</div><div class="stat-label">Requests</div></div>
+          <div class="stat-card-sm"><div class="stat-value">${offers.length}</div><div class="stat-label">Help offers</div></div>
+          <div class="stat-card-sm"><div class="stat-value">${completed}</div><div class="stat-label">Completed</div></div>
+          <div class="stat-card-sm"><div class="stat-value">${requests.filter(r=>r.status==='open').length}</div><div class="stat-label">Open requests</div></div>
+        `;
+        document.getElementById('dashboardStats').innerHTML = statsHtml;
+
+        const recentGrid = document.getElementById('dashboardRecentRequests');
+        const recent = [...requests].sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0,4);
+        recentGrid.innerHTML = recent.map(r => requestCardHtml(r)).join('');
+        attachCardHandlers(recentGrid);
+
+        // activity
+        const activity = getActivity().slice(0, 5);
+        const activityList = document.getElementById('dashboardActivityList');
+        if (activity.length === 0) {
+          activityList.innerHTML = '<div class="empty-state" style="padding:24px;">No activity yet. Start by offering help or creating a request.</div>';
+        } else {
+          activityList.innerHTML = activity.map(a => `
+            <div class="activity-item">
+              <div class="activity-dot"></div>
+              <div>
+                <div style="font-weight:600;">${escapeHtml(a.action)}</div>
+                <div style="color:#4a5a52; font-size:0.9rem;">${escapeHtml(a.detail)} · ${timeAgo(a.timestamp)}</div>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      // ---------- RENDER: DISCOVER ----------
+      let discoverFilters = { search: '', category: 'all', sort: 'newest' };
+
+      function renderDiscover() {
+        let requests = getRequests();
+        // apply search
+        if (discoverFilters.search) {
+          const q = discoverFilters.search.toLowerCase();
+          requests = requests.filter(r => r.title.toLowerCase().includes(q) || r.description.toLowerCase().includes(q));
+        }
+        if (discoverFilters.category !== 'all') {
+          requests = requests.filter(r => r.category === discoverFilters.category);
+        }
+        // sort
+        if (discoverFilters.sort === 'newest') {
+          requests.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+        } else {
+          requests.sort((a,b) => (b.helpers||0) - (a.helpers||0));
+        }
+        const grid = document.getElementById('discoverGrid');
+        if (requests.length === 0) {
+          grid.innerHTML = '<div class="empty-state"><i>🔍</i><p>No requests match your filters. Try adjusting your search.</p></div>';
+        } else {
+          grid.innerHTML = requests.map(r => requestCardHtml(r)).join('');
+          attachCardHandlers(grid);
+        }
+      }
+
+      function attachCardHandlers(container) {
+        container.querySelectorAll('.offer-help-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const id = btn.dataset.id;
+            offerHelp(id);
+          });
+        });
+        container.querySelectorAll('.view-detail-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const id = btn.dataset.id;
+            openRequestDetail(id);
+          });
+        });
+        container.querySelectorAll('.request-card').forEach(card => {
+          card.addEventListener('click', (e) => {
+            if (e.target.closest('button')) return;
+            const id = card.dataset.id;
+            openRequestDetail(id);
+          });
+        });
+      }
+
+      // ---------- OFFER HELP ----------
+      function offerHelp(requestId) {
+        const requests = getRequests();
+        const request = requests.find(r => r.id === requestId);
+        if (!request) return;
+        if (request.status !== 'open') {
+          showToast('This request is already closed.');
+          return;
+        }
+        const offers = getOffers();
+        // prevent duplicate offer (same user & request)
+        const alreadyOffered = offers.some(o => o.requestId === requestId);
+        if (alreadyOffered) {
+          showToast('You already offered help for this request.');
+          return;
+        }
+        const profile = getProfile();
+        const offer = {
+          id: 'offer_' + Date.now(),
+          requestId: requestId,
+          requestTitle: request.title,
+          userId: 'me',
+          userName: profile.name || 'You',
+          timestamp: new Date().toISOString()
+        };
+        offers.push(offer);
+        saveOffers(offers);
+
+        request.helpers = (request.helpers || 0) + 1;
+        // status update: if helpers >= 3, mark as "in progress" (but we keep as open for simplicity, but we'll mark completed later? just keep open)
+        saveRequests(requests);
+
+        addActivity('Offered help', `You offered help for "${request.title}"`);
+        showToast('Thank you! Your help offer has been saved.');
+        // re-render
+        refreshPageContent(currentPage);
+      }
+
+      // ---------- CANCEL OFFER ----------
+      function cancelOffer(offerId, requestId) {
+        let offers = getOffers();
+        const offer = offers.find(o => o.id === offerId);
+        if (!offer) return;
+        offers = offers.filter(o => o.id !== offerId);
+        saveOffers(offers);
+        const requests = getRequests();
+        const request = requests.find(r => r.id === requestId);
+        if (request) {
+          request.helpers = Math.max(0, (request.helpers || 0) - 1);
+          saveRequests(requests);
+        }
+        addActivity('Cancelled help offer', `You cancelled your help offer for "${request ? request.title : 'a request'}"`);
+        showToast('Help offer cancelled.');
+        refreshPageContent(currentPage);
+        if (currentPage === 'requestDetail') openRequestDetail(requestId);
+      }
+
+      // ---------- REQUEST DETAIL ----------
+      function openRequestDetail(requestId) {
+        const requests = getRequests();
+        const request = requests.find(r => r.id === requestId);
+        if (!request) return;
+        previousPage = currentPage;
+        currentPage = 'requestDetail';
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById('page-requestDetail').classList.add('active');
+        const container = document.getElementById('requestDetailContent');
+        const offers = getOffers();
+        const userOffer = offers.find(o => o.requestId === requestId);
+        container.innerHTML = `
+          <div class="form-card" style="max-width:800px;">
+            <span class="request-category">${request.category}</span>
+            <h2 style="margin:16px 0;">${escapeHtml(request.title)}</h2>
+            <p style="color:#4a5a52; margin-bottom:24px;">${escapeHtml(request.description)}</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
+              <div><strong>Support needed:</strong> ${escapeHtml(request.supportType)}</div>
+              <div><strong>Helpers:</strong> ${request.helpers}</div>
+              ${request.deadline ? `<div><strong>Deadline:</strong> ${formatDate(request.deadline)}</div>` : ''}
+              ${request.area ? `<div><strong>Area:</strong> ${escapeHtml(request.area)}</div>` : ''}
+              <div><strong>Status:</strong> ${request.status}</div>
+            </div>
+            <div style="display:flex; gap:16px; flex-wrap:wrap;">
+              ${request.status === 'open' ? `
+                <button class="btn" id="detailOfferBtn" ${userOffer ? 'disabled' : ''}>${userOffer ? 'Help offered' : 'Offer help'}</button>
+              ` : '<button class="btn" disabled>Request closed</button>'}
+              ${userOffer ? `<button class="btn btn-outline" id="detailCancelOfferBtn" data-offer-id="${userOffer.id}">Cancel my offer</button>` : ''}
+              <button class="btn btn-outline" id="detailReportBtn">Report request</button>
+            </div>
+            <div class="privacy-note" style="margin-top:24px;">
+              Remember: never share personal addresses or sensitive info. Kindora is a prototype.
+            </div>
+          </div>
+        `;
+        document.getElementById('backFromDetail').onclick = () => navigateTo(previousPage);
+        const offerBtn = document.getElementById('detailOfferBtn');
+        if (offerBtn && !userOffer) {
+          offerBtn.addEventListener('click', () => { offerHelp(requestId); openRequestDetail(requestId); });
+        }
+        const cancelBtn = document.getElementById('detailCancelOfferBtn');
+        if (cancelBtn) {
+          cancelBtn.addEventListener('click', () => { cancelOffer(cancelBtn.dataset.offerId, requestId); });
+        }
+        document.getElementById('detailReportBtn').addEventListener('click', () => {
+          showToast('Report submitted. Thank you for keeping Kindora safe.');
+        });
+      }
+
+      // ---------- RENDER: MATCH ----------
+      function renderMatch() {
+        const requests = getRequests().filter(r => r.status === 'open');
+        const profile = getProfile();
+        const interests = profile.interests || [];
+        const grid = document.getElementById('matchGrid');
+        if (requests.length === 0) {
+          grid.innerHTML = '<div class="empty-state"><i>✨</i><p>No open requests to match right now.</p></div>';
+          return;
+        }
+        // score: category match = 60%, interest match = 40%
+        const scored = requests.map(r => {
+          let score = 0;
+          let reasons = [];
+          if (interests.includes(r.category)) {
+            score += 60;
+            reasons.push(`your interest in ${r.category}`);
+          }
+          // bonus for keywords? simple interest compatibility
+          if (interests.length > 0 && interests.includes(r.category)) {
+            score += 20;
+            reasons.push('matches your helping categories');
+          }
+          // helpers factor: fewer helpers = higher match
+          if (r.helpers < 2) {
+            score += 10;
+            reasons.push('needs more helpers');
+          }
+          // recency bonus
+          const daysOld = (Date.now() - new Date(r.createdAt)) / (1000*60*60*24);
+          if (daysOld < 7) {
+            score += 10;
+            reasons.push('recent request');
+          }
+          const percent = Math.min(99, Math.round(score));
+          return { request: r, percent, reason: reasons.length ? `Recommended because: ${reasons.join(', ')}.` : 'A community request you might be able to help with.' };
+        }).sort((a,b) => b.percent - a.percent);
+        grid.innerHTML = scored.map(s => requestCardHtml(s.request, true, s.percent, s.reason)).join('');
+        attachCardHandlers(grid);
+      }
+
+      // ---------- RENDER: ACTIVITIES ----------
+      function renderActivities() {
+        const requests = getRequests();
+        const offers = getOffers();
+        const activity = getActivity();
+
+        const myCreated = requests.filter(r => r.userId === 'me' || (!r.isSample && r.userId !== 'sample'));
+        // for demo, show requests created locally (non-sample)
+        const localRequests = requests.filter(r => !r.isSample);
+        const createdContainer = document.getElementById('myCreatedRequests');
+        if (localRequests.length === 0) {
+          createdContainer.innerHTML = '<div class="empty-state" style="padding:24px;">You haven\'t created any requests yet.</div>';
+        } else {
+          createdContainer.innerHTML = localRequests.map(r => `
+            <div class="activity-item">
+              <div class="activity-dot" style="background:var(--secondary);"></div>
+              <div>
+                <div style="font-weight:600;">${escapeHtml(r.title)}</div>
+                <div style="color:#4a5a52; font-size:0.9rem;">${r.helpers} helpers · ${r.status}</div>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        const offersContainer = document.getElementById('myHelpOffers');
+        const myOffers = offers.filter(o => o.userId === 'me');
+        if (myOffers.length === 0) {
+          offersContainer.innerHTML = '<div class="empty-state" style="padding:24px;">No help offers yet. Discover requests to start helping.</div>';
+        } else {
+          offersContainer.innerHTML = myOffers.map(o => {
+            const req = requests.find(r => r.id === o.requestId);
+            return `
+              <div class="activity-item">
+                <div class="activity-dot" style="background:var(--orange);"></div>
+                <div style="flex:1;">
+                  <div style="font-weight:600;">${escapeHtml(o.requestTitle)}</div>
+                  <div style="color:#4a5a52; font-size:0.9rem; display:flex; justify-content:space-between; align-items:center;">
+                    <span>Offered ${timeAgo(o.timestamp)}</span>
+                    ${req && req.status === 'open' ? `<button class="btn btn-small btn-outline cancel-offer-btn" data-offer-id="${o.id}" data-request-id="${o.requestId}" style="padding:4px 12px;">Cancel</button>` : ''}
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('');
+          offersContainer.querySelectorAll('.cancel-offer-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              cancelOffer(btn.dataset.offerId, btn.dataset.requestId);
+            });
+          });
+        }
+
+        const historyContainer = document.getElementById('activityHistory');
+        if (activity.length === 0) {
+          historyContainer.innerHTML = '<div class="empty-state" style="padding:24px;">No activity history yet.</div>';
+        } else {
+          historyContainer.innerHTML = activity.map(a => `
+            <div class="activity-item">
+              <div class="activity-dot"></div>
+              <div>
+                <div style="font-weight:600;">${escapeHtml(a.action)}</div>
+                <div style="color:#4a5a52; font-size:0.9rem;">${escapeHtml(a.detail)} · ${timeAgo(a.timestamp)}</div>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      // ---------- RENDER: IMPACT ----------
+      function renderImpact() {
+        const requests = getRequests();
+        const offers = getOffers();
+        const completed = requests.filter(r => r.status === 'completed').length;
+        document.getElementById('impactStats').innerHTML = `
+          <div class="stat-card-sm"><div class="stat-value">${requests.length}</div><div class="stat-label">Requests created</div></div>
+          <div class="stat-card-sm"><div class="stat-value">${offers.length}</div><div class="stat-label">Help offers</div></div>
+          <div class="stat-card-sm"><div class="stat-value">${completed}</div><div class="stat-label">Completed requests</div></div>
+          <div class="stat-card-sm"><div class="stat-value">${requests.filter(r=>r.helpers>0).length}</div><div class="stat-label">Requests with helpers</div></div>
+        `;
+        // community activity
+        const activity = getActivity().slice(0, 10);
+        const list = document.getElementById('impactActivityList');
+        if (activity.length === 0) {
+          list.innerHTML = '<div class="empty-state" style="padding:24px;">No activity yet.</div>';
+        } else {
+          list.innerHTML = activity.map(a => `
+            <div class="activity-item">
+              <div class="activity-dot"></div>
+              <div>
+                <div style="font-weight:600;">${escapeHtml(a.action)}</div>
+                <div style="color:#4a5a52; font-size:0.9rem;">${escapeHtml(a.detail)} · ${timeAgo(a.timestamp)}</div>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      // ---------- RENDER: PROFILE ----------
+      function renderProfile() {
+        const profile = getProfile();
+        document.getElementById('profileName').value = profile.name || '';
+        const categories = ['Education','Food','Community','Technology','Environment','Emotional Support','Other'];
+        const container = document.getElementById('interestCheckboxes');
+        container.innerHTML = categories.map(c => `
+          <label class="checkbox-item">
+            <input type="checkbox" value="${c}" ${profile.interests && profile.interests.includes(c) ? 'checked' : ''}>
+            ${c}
+          </label>
+        `).join('');
+        // attach save handler (re-attach each render)
+        document.getElementById('saveProfileBtn').onclick = () => {
+          const name = document.getElementById('profileName').value.trim();
+          const interests = Array.from(document.querySelectorAll('#interestCheckboxes input:checked')).map(cb => cb.value);
+          saveProfile({ name, interests });
+          showToast('Profile saved.');
+        };
+        document.getElementById('resetDemoBtn').onclick = () => {
+          if (confirm('Reset all demo data? This will clear your requests, offers, and profile.')) {
+            localStorage.setItem(STORAGE_REQUESTS, JSON.stringify(SAMPLE_REQUESTS));
+            localStorage.setItem(STORAGE_OFFERS, JSON.stringify([]));
+            localStorage.setItem(STORAGE_PROFILE, JSON.stringify({ name: '', interests: ['Community','Food','Education'] }));
+            localStorage.setItem(STORAGE_ACTIVITY, JSON.stringify([]));
+            initStorage();
+            showToast('Demo data reset.');
+            navigateTo('landing');
+          }
+        };
+      }
+
+      // ---------- CREATE REQUEST FORM ----------
+      document.getElementById('createRequestForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = document.getElementById('reqTitle').value.trim();
+        const category = document.getElementById('reqCategory').value;
+        const description = document.getElementById('reqDescription').value.trim();
+        const supportType = document.getElementById('reqSupportType').value.trim();
+        const deadline = document.getElementById('reqDeadline').value;
+        const area = document.getElementById('reqArea').value.trim();
+        if (!title || !category || !description || !supportType) {
+          showToast('Please fill in all required fields.');
+          return;
+        }
+        const requests = getRequests();
+        const newRequest = {
+          id: 'req_' + Date.now(),
+          title,
+          category,
+          description,
+          supportType,
+          deadline: deadline || '',
+          area: area || '',
+          createdAt: new Date().toISOString(),
+          helpers: 0,
+          status: 'open',
+          isSample: false,
+          userId: 'me'
+        };
+        requests.push(newRequest);
+        saveRequests(requests);
+        addActivity('Created request', `You created "${title}"`);
+        showToast('Request created successfully!');
+        document.getElementById('createRequestForm').reset();
+        navigateTo('discover');
+      });
+
+      // ---------- SEARCH / FILTER EVENTS ----------
+      document.getElementById('searchInput').addEventListener('input', (e) => {
+        discoverFilters.search = e.target.value;
+        renderDiscover();
+      });
+      document.getElementById('categoryFilter').addEventListener('change', (e) => {
+        discoverFilters.category = e.target.value;
+        renderDiscover();
+      });
+      document.getElementById('sortSelect').addEventListener('change', (e) => {
+        discoverFilters.sort = e.target.value;
+        renderDiscover();
+      });
+
+      // ---------- GLOBAL NAVIGATION HANDLERS ----------
+      document.querySelectorAll('[data-page]').forEach(el => {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          const page = el.dataset.page;
+          navigateTo(page);
+          // close mobile menu
+          document.getElementById('mainNav').classList.remove('open');
+        });
+      });
+
+      // Mobile menu toggle
+      document.getElementById('menuToggle').addEventListener('click', () => {
+        document.getElementById('mainNav').classList.toggle('open');
+      });
+
+      // ---------- UTILS ----------
+      function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      function formatDate(dateStr) {
+        if (!dateStr) return '';
+        const d = new Date(dateStr);
+        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+
+      function timeAgo(timestamp) {
+        const now = Date.now();
+        const past = new Date(timestamp).getTime();
+        const diff = Math.floor((now - past) / 1000);
+        if (diff < 60) return 'just now';
+        if (diff < 3600) return Math.floor(diff/60) + ' min ago';
+        if (diff < 86400) return Math.floor(diff/3600) + ' hr ago';
+        return Math.floor(diff/86400) + ' days ago';
+      }
+
+      // ---------- INIT ----------
+      initStorage();
+
+      // handle initial hash
+      const hash = window.location.hash.replace('#', '');
+      const validPages = ['landing','dashboard','discover','create','match','activities','impact','profile','requestDetail'];
+      if (hash && validPages.includes(hash) && hash !== 'requestDetail') {
+        navigateTo(hash, false);
+      } else {
+        navigateTo('landing', false);
+      }
+
+      // attach card handlers for all pages after render
+      const originalRefresh = refreshPageContent;
+      refreshPageContent = function(page) {
+        originalRefresh(page);
+        // re-attach for landing etc.
+      };
+
+      // re-render on storage changes (cross-tab not needed but fine)
+      window.addEventListener('storage', () => {
+        refreshPageContent(currentPage);
+      });
+
+      // keyboard escape to close detail
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && currentPage === 'requestDetail') {
+          navigateTo(previousPage);
+        }
+      });
+
+      console.log('Kindora ready. Demo data loaded.');
+    })();
+  </script>
+</body>
+</html>
