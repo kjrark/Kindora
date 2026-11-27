@@ -778,6 +778,29 @@
       gap: 32px;
     }
 
+    .footer-brand .logo {
+      color: var(--white);
+      font-size: 1.6rem;
+      gap: 10px;
+      width: fit-content;
+    }
+
+    /* Keep the footer wordmark light against the dark forest background.
+       The global .logo-word uses a dark header color, so override it only here. */
+    .footer-brand .logo-word {
+      color: var(--white) !important;
+      -webkit-text-fill-color: var(--white);
+    }
+
+    .footer-brand .logo-symbol {
+      background: var(--mint);
+      color: var(--forest);
+    }
+
+    .footer-brand .logo:hover .logo-symbol {
+      background: var(--white);
+    }
+
     .footer-brand p {
       color: var(--mint);
       margin-top: 8px;
@@ -1292,7 +1315,10 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <div class="logo" style="color:var(--white); font-size:1.6rem;">Kindora<span style="color:var(--orange);">.</span></div>
+          <a href="#" class="logo" data-page="landing" aria-label="Kindora home">
+            <span class="logo-symbol" aria-hidden="true"><svg viewBox="0 0 40 40" focusable="false"><path d="M20 3.5C11 3.5 4 10.4 4 19.2c0 8.7 7.1 15.8 16 15.8s16-7.1 16-15.8C36 10.4 29 3.5 20 3.5Z" fill="currentColor" opacity=".12"/><path d="M11 23.5c4.5-1.1 7.5-4.1 9-9 1.4 4.9 4.5 7.9 9 9-4.5 1.1-7.6 4.1-9 9-1.5-4.9-4.5-7.9-9-9Z" fill="currentColor"/><path d="M11 13.5c3.2.4 5.3 2.5 6.1 5.7M29 13.5c-3.2.4-5.3 2.5-6.1 5.7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+            <span class="logo-word">Kindora<span class="logo-period">.</span></span>
+          </a>
           <p>Small acts. Stronger communities.</p>
         </div>
         <div class="footer-links">
